@@ -3,19 +3,19 @@
 
 /**
 * insertion_sort_list - that sorts an array of integers group by group.
-* @list: Array to be sorted.
+* @array: Array to be sorted.
 *
 */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *temp;
-	listint_t *cstm, *head;
+    listint_t *temp;
+    listint_t *cstm, *head;
 
 	head = (*list)->next;
 	while (head != NULL)
 	{
 	cstm = *list;
-	temp = head;
+    temp = head;
 	head = head->next;
 
 	while (cstm != temp && cstm->n < temp->n)
@@ -25,13 +25,12 @@ void insertion_sort_list(listint_t **list)
 
 	if (cstm != temp)
 	{
-	print_list(*list);
-
 	temp->prev->next = temp->next;
 	if (temp->next != NULL)
-	{
+    {
 	temp->next->prev = temp->prev;
-	}
+    }
+    print_list(*list);
 
 	temp->next = cstm;
 	temp->prev = cstm->prev;
